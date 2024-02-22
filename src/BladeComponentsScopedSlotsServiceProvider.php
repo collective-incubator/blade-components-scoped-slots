@@ -4,7 +4,6 @@ namespace KonradKalemba\BladeComponentsScopedSlots;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\HtmlString;
 
 class BladeComponentsScopedSlotsServiceProvider extends ServiceProvider
 {
@@ -47,7 +46,7 @@ class BladeComponentsScopedSlotsServiceProvider extends ServiceProvider
         });
 
         Blade::directive('endscopedslot', function () {
-            return "<?php return new HtmlString(trim(ob_get_clean())); }); ?>";
+            return "<?php return new \Illuminate\Support\HtmlString(trim(ob_get_clean())); }); ?>";
         });
     }
 }
