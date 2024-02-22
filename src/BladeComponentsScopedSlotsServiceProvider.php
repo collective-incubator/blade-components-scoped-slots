@@ -38,6 +38,9 @@ class BladeComponentsScopedSlotsServiceProvider extends ServiceProvider
             // Add `$__env` to allow usage of other Blade directives inside the scoped slot
             $functionUses[] = '$__env';
 
+            // Add `$errors` to allow usage of the validation errors inside the scoped slot
+            $functionUses[] = '$errors';
+
             $functionUses = implode(',', $functionUses);
 
             return "<?php \$__env->slot({$name}, {$functionArguments} use ({$functionUses}) { ob_start(); ?>";
